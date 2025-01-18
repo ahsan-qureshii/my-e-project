@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Individual Plans</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" href="Images/faviconlogo.png">
+     <style>
+
+*{
+        margin: 0;
+        padding: 0;
+      }
+        /* NAVBAR */
+        .nav-link{
+            font-size: 13px;
+            color:rgb(255, 255, 255);
+            text-decoration:none;
+            cursor: pointer;
+        }
+        .nav-link:hover{
+            color:rgb(255,177,0);
+            text-decoration: none;
+        }
+        .nav-link:active{
+            color:rgb(255,177,0);
+            text-decoration: none;
+        }
+        .nav-link:focus{
+            color:rgb(255,177,0);
+            text-decoration: none;
+        }
+        /* SEARCH SEC CSS */
+        #sersec {
+            width: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            transition: width 0.4s ease;
+        }
+        /* Carousel */
+        .carousel-background {
+            width: 100%;
+            display: flex;
+        }
+        
+       .carousel-img {
+            position: absolute; 
+            width: 100%;
+          }
+          #mainimg1{
+            width: 100%;
+            max-width: 320px;
+            height: 110px;
+          }
+          #carousel-nav{
+            width: 100%;
+            height: 110px;
+            background: -webkit-linear-gradient(left,rgb(0,0,0),transparent)100%;
+            left: 320px;
+            top: 0%;
+            flex: 1;
+            position:absolute;
+            opacity: 0.65;
+          }
+          /* media queries carousel */
+          @media(max-width:768px){
+            .carousel-img{
+              display: none;
+            }
+          }
+        /* subscribe button css */
+        #subsbtn:hover{
+          background-color: rgb(255, 177, 0);
+          color: white;
+        }
+        /* DV */
+        .dv{
+          width: 100%;
+          height: 100%;
+        }
+        /* Placeholder */
+        input::placeholder{
+          color: black;
+        }
+        #btn0{
+          color: white;
+          background-color: black;
+        }
+        #btn0:hover{
+          color: black;
+          background-color: rgb(255, 177, 0);
+        }
+        /* CONTACT SEC DV's */
+        .dvcontact{
+          color: black;
+          text-decoration: none;
+        }
+        .dvcontact:hover{
+          color:rgb(255, 177, 0);
+          text-decoration: none;
+        }
+        #dropdown-toggle{
+          color: #131313;
+          text-decoration: none ;
+        }
+        #dropdown-toggle:hover{
+          color:rgb(255, 177, 0);
+        }
+        /* dropdownarrow */
+        #dropdownarrow::after{
+          content: none;
+        }
+        .custom-alert {
+            display:none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f8f9fa;
+            border: 2px solid rgb(255, 177, 0);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgb(255, 177, 0);
+            z-index: 1000;
+            min-width: 300px;
+        }
+
+        .custom-alert button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .custom-alert button:hover {
+            background-color: rgb(255, 177, 0);
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.5;
+
+        }
+     </style>
+  </head>
+  <body>
+    <div class="overlay" id="overlay"></div>
+    <div class="custom-alert" id="customalert">
+        <h2 align="left" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Trustguard-Insurance</h2>
+        <p>Your Request Has Been Successfully Submitted.</p>
+        <button id="closeAlertBtn">OK</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="custom-alert" id="customAlert">
+        <h2 align="left" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Trustguard-Insurance</h2>
+        <h4 style="color: #dc3545; font-size: 24px;">Page Not Found</h4>
+        <p style="font-size: 16px; color: #555;">We couldn't find the page you were looking for. Please check if there are any spelling mistakes or extra spaces in your input. If you're sure the page should exist, please try again later or use the search feature to find what you're looking for.</p>
+        <button onclick="closeAlert()">OK</button>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Navbar section for top bar (phone, social media, etc.) -->
+            <ul class="nav" style="background-image: -webkit-linear-gradient(left, rgb(0, 0, 0), rgb(255, 177, 0));">
+                <li class="nav-item" style="font-size: 18px;">
+                    <a class="nav-link" style="color: rgb(255, 255, 255);">📞 (021) *** *** ***</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook" style="font-size: 18px;"></i></a>
+                </li>
+                <li class="nav-item" style="">
+                    <a class="nav-link" href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp" style= "font-size: 18px;"></i></a>
+                  </li> 
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin" style="font-size: 18px;"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://twitter.com/"><i class="fa-brands fa-x-twitter" style="font-size: 18px;"></i></a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownarrow">
+                    <i class="fa-solid fa-magnifying-glass" style="font-size: 18px;"></i>
+                    <i class="fa-solid fa-circle-xmark" style="font-size: 18px; display: none; color: white ;"></i>
+                  </a>
+                  <ul class="dropdown-menu" style="width:290px;height: 150px; background:rgb(253, 177, 0);">
+                    <li><input type="text" placeholder="_____________________________________________" id="ser" title="Search Here" required style="width: 100%; height: 30px; background: transparent; border: transparent;"></li> <br>
+                    <li align="center" ><input type="button" onclick="abc()" value="search"  required style="top: 7%; position: absolute;left: 80%;background: none;border: transparent;"></li> <br>
+                    <li><p style="font-family: 'Times New Roman', Times, serif; font-size: x-large; color: rgb(0, 0, 0);" align="center" >Trustguard-Insurance</p></li>
+                  </ul>
+                  </li>
+              </ul>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-image: -webkit-linear-gradient(left, rgb(255, 177, 0), rgb(0, 0, 0));">
+          <a class="navbar-brand" href="#"></a>
+          <!-- Toggler button for mobile view -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="background-color: rgb(255, 177, 0);right: 1%;position: relative;">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Navbar links for larger screens -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item"><a class="nav-link" href="Trustguard Insurance.html">Home</a></li>
+                  <li class="nav-item"><a class="nav-link" href="Trustguard Investor's Info.html">Investor Information</a></li>
+                  <li class="nav-item"><a class="nav-link" href="Trustguard Investor's Relation.html">Investor Relations</a></li>
+                  <li class="nav-item"><a class="nav-link" href="Trustguard Stock's Info.html">Stock Information</a></li>
+                  <li class="nav-item"><a class="nav-link" href="Trustguard Company Profile.html">Company Profile</a></li>
+                  <li class="nav-item"><a class="nav-link" href="Trustguard about us.html">About Us</a></li>
+                  <li class="nav-item"><a class="nav-link" href="Trustguard contact us.html">Contact Us</a></li>
+              </ul>
+          </div>
+      </nav>
+          </div>
+        </div>
+        <div class="row">
+         <div class="col-md-12"> 
+            <div class="carousel-background">
+            <div id="carouselslider" class="carousel" data-bs-ride="carousel" bata-bs-interval="1ms">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="Images/individual.png" class="d-block w-100">
+                  </div>
+                 
+                <div class="carousel-img">
+                 <img src="Images/Trustguard.jpg" id="mainimg1">
+                 <div id="carousel-nav">
+         </div>
+                </div>
+                </div>
+            </div>
+         </div>
+         </div>
+        </div> 
+    </div>
+        <br> <div class="container-fluid" style="color: rgb(0, 0, 0);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: larger;font-weight: 600;background-color: rgb(255, 177, 0)  ;" align="center">
+        <script>
+            var userName = localStorage.getItem("userName");
+            if (userName) {
+                document.write("Welcome, "+  userName + "    here's your individual plans" + "!");
+            } else {
+                document.write("<h2>Welcome, Guest!</h2>");
+            }
+        </script> 
+        </div>
+        <hr style="color: rgb(0,0, 0); height: 5px; border: 0; background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0); border-top: rgb(0, 0, 0);opacity: 1;">
+         <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6" align="center">
+              <div class="card">
+                <img src="Images/insurance1.webp" alt="Denim Jeans" style="width:100%">
+                <h3> Basic Health Insurance</h3>
+                <p class="price">$19.99</p>
+                <p><b>Coverage:</b>Doctor visits, hospitalization, basic tests.</p>
+                <p><b> Best for:</b> Those seeking low-cost health coverage.</p>
+                 <p><b> Premiums:</b> Low.</p>
+                <p><button>Add to Cart</button></p>
+              </div>
+            </div>
+            <div class="col-md-6" align="center">
+              <div class="card">
+                <img src="Images/insurance0.webp" alt="Denim Jeans" style="width:100%">
+                <h3>Comprehensive Health Insurance</h3>
+                <p class="price">$19.99</p>
+                <p><b>Coverage:</b>Doctor visits, hospitalization, basic tests.</p>
+                 <p><b> Best for:</b> Those wanting extensive health coverage.</p>
+                 <p><b> Premiums:</b> Medium to high.</p>
+                <p><button>Add to Cart</button></p>
+              </div>
+            </div>
+          </div> <br>
+        <div class="row" align="center">
+            <div class="col-md-4" align="center">
+              <div class="card">
+                <img src="Images/insurance3.webp" alt="Denim Jeans" style="width:100%">
+                <h3> Term Life Insurance</h3>
+                <p class="price">$19.99</p>
+                <p><b>Coverage:</b>Death benefit, accidental death.</p>
+                <p><b> Best for:</b> Providing family financial security</p>
+                 <p><b> Premiums:</b> Low.</p>
+                <p><button>Add to Cart</button></p>
+              </div>
+            </div> 
+            <div class="col-md-4" align="center">
+              <div class="card">
+                <img src="Images/insurance5.webp" alt="Denim Jeans" style="width:100%">
+                <h3>Critical Illness Insurance</h3>
+            <p class="price">$19.99</p>
+            <p><b>Coverage:</b>Lump sum for major illnesses (e.g., cancer, heart attack).</p>
+            <p><b> Best for:</b> Financial protection against severe illness.</p>
+             <p><b> Premiums:</b>Medium to high.</p>
+            <p><button>Add to Cart</button></p>
+              </div>
+              </div>
+              <div class="col-md-4" align="center">
+                <div class="card">
+                  <img src="Images/insurance4.webp" alt="Denim Jeans" style="width:100%">
+                  <h3> Personal Accident Insurance</h3>
+                  <p class="price">$19.99</p>
+                  <p><b>Coverage:</b> Accidental death, disability, medical expenses.</p>
+                  <p><b> Best for:</b> Active or risk-prone individuals.</p>
+                   <p><b> Premiums:</b>  Affordable.</p>
+                  <p><button>Add to Cart</button></p>
+                </div>
+                </div>
+            </div>
+         </div>
+         <hr style="color: rgb(255, 177, 0); height: 5px; border: 0; background-color: rgb(255, 177, 0); border-color: rgb(255, 177, 0); border-top: rgb(255, 177, 0);opacity: 1;">
+        <hr style="color: rgb(0,0, 0); height: 5px; border: 0; background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0); border-top: rgb(0, 0, 0);opacity: 1;">
+        <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3" align="center">
+           <div class="dv">
+            <i class="fa-brands fa-whatsapp" style="font-size: 40px; word-spacing: 20px;color: rgb(255,177,0);"></i>   <br><a style="font-weight: bold;">WHATSAPP</a><br>
+            <a href="https://web.whatsapp.com/" class="dvcontact">📱 Connect Here</a> <br>
+            <a href="https://web.whatsapp.com/" class="dvcontact">🖥For Details</a>
+            <br> <br>
+           </div>
+          </div>
+          <div class="col-md-3" align="center">
+           <div class="dv1">
+            <i class="fa-regular fa-message" style="font-size: 30px; word-spacing: 15px;color: rgb(255, 177, 0);"></i>   <br><a style="font-weight: bold;">SMS</a><br>
+            <p><a style="font-weight: 640;">Your Query</a> to <b>****</b></p> <br> <br>
+           </div>
+          </div>
+          <div class="col-md-3" align="center">
+            <div class="dv2">
+              <i class="fa-solid fa-phone" style="font-size: 30px; word-spacing: 15px;color: rgb(255, 177, 0);"></i>   <br><a style="font-weight: bold;">CALL</a><br>
+              Call Our Contact Center
+              (021) *** *** *** <br> <br>
+            </div>
+          </div>
+          <div class="col-md-3" align="center">
+           <div class="dv3">
+            <i class="fa-solid fa-envelope"  style="font-size: 30px; word-spacing: 10px;color: rgb(255, 177, 0);"></i>   <br><a style="font-weight: bold;">FEEDBACK & COMPLAINTS</a>
+            <a href="mailto:?subject:Customer care" class="dvcontact">
+            info@trustguard.com </a>
+           <a href="mailto:?subject:Customer care" class="dvcontact">complaints@trustguard.com </a><br>  <br>
+           </div>
+          </div>
+        </div>
+        </div>
+        <hr style="color: rgb(0,0, 0); height: 5px; border: 0; background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0); border-top: rgb(0, 0, 0);opacity: 1;">
+        <hr style="color: rgb(255, 177, 0); height: 5px; border: 0; background-color: rgb(255, 177, 0); border-color: rgb(255, 177, 0); border-top: rgb(255, 177, 0);opacity: 1;">
+        <!-- NAVBAR 3 -->
+        <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+        <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
+          <div class="bg-dark p-4">
+            <h5 class="text-body-emphasis h4">TRUSTGUARD INSURANCE CORPORATION PAKISTAN.</h5>
+            <span class="text-body-secondary">Pakistan's Most Trusted Life & Health Insurer.</span> <br> <br>
+            <div class="dvserved">
+              <i class="fa-solid fa-shield-halved" style="color: rgb(255, 177, 0);font-size:30px;"> </i><a style="color: rgb(255, 255, 255);"> 180M+ Pakistani Served</a> <br> <br>
+              <i class="fa-solid fa-credit-card" style="color: rgb(255, 177, 0);font-size:30px;"></i> <a style="color: rgb(255, 255, 255);"> 27B+ Payments Claimed</a> <br> <br>
+              <i class="fa-solid fa-money-bill-trend-up" style="color: rgb(255, 177, 0);font-size:30px;"></i> <a style="color: rgb(255, 255, 255);"> 70% Market Share</a> <br> <br>
+              <i class="fa-solid fa-user" style="color: rgb(255, 177, 0);font-size:30px;"></i><a style="color: rgb(255, 255, 255);"> 18B+ Policy Holders Bonus</a>
+            </div>
+          </div>
+        </div>
+        <nav class="navbar" style="background-color: rgb(26, 25, 25);">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation" style="background-color: rgb(255,177,0); border-color: black; border-width: 4px;">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="Trustguard Insurance.html" style="background-color: rgb(255,177,0); color:rgb(0, 0, 0); width: 220px; border-radius: 20px; font-family: 'Times New Roman', Times, serif; height: 67px;" align="center">TRUSTGUARD<br>
+                <p style="font-size: small; font-family: 'Times New Roman', Times, serif;">Life Insurance</p></a>
+                <ul class="nav">
+                  <li class="nav-item">
+                    <a class="nav-link" style="color: white; font: size 18px;">Aapke Sapnon Ki Hifazat, Hamari Zimmedari</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" style="font-weight: bold; color: rgb(255, 177, 0);">E-NEWS LETTER</a>
+                  </li>
+                </ul>
+                <form class="d-flex" id="myForm">
+                  <input type="email" id="subs" placeholder="Email Address required" required style="width: 270px;">
+                  <input type="submit" id="subsbtn" value="Subscribe" style="border-radius: 0px; border:rgb(255, 177, 0);">
+              </form>
+                <ul class="nav" >
+                    <li class="nav-item" >
+                      <a class="nav-link" href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook" style=" font-size: 18px;"></i></a>
+                    </li>
+                    <li class="nav-item" style="">
+                        <a class="nav-link" href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp" style= "font-size: 18px;"></i></a>
+                      </li> 
+                    <li class="nav-item" style="">
+                      <a class="nav-link" href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin" style=" font-size: 18px;"></i></a>
+                    </li>
+                    <li class="nav-item" style="">
+                      <a class="nav-link" href="https://twitter.com/"><i class="fa-brands fa-x-twitter" style=" font-size: 18px;"></i></a>
+                    </li>
+                </ul>
+                  </ul>
+              </div>
+            </nav>
+        </nav>
+          </div>
+        </div>
+        </div>
+         <footer class=" text-dark text-center">
+          <p style="font-size: small;">&copy; 2024 Trustguard-Insurance. All rights reserved.</p>
+      </footer>     <div class="container-fluid">
+        <div class="row">
+         <div class="col-md-12">
+       <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
+         <div class="bg-dark p-4">
+           <h5 class="text-body-emphasis h4">TRUSTGUARD INSURANCE CORPORATION PAKISTAN.</h5>
+           <span class="text-body-secondary">Pakistan's Most Trusted Life & Health Insurer.</span> <br> <br>
+           <div class="dvserved">
+             <i class="fa-solid fa-shield-halved" style="color: rgb(255, 177, 0);font-size:30px;"> </i><a style="color: rgb(255, 255, 255);"> 180M+ Pakistani Served</a> <br> <br>
+             <i class="fa-solid fa-credit-card" style="color: rgb(255, 177, 0);font-size:30px;"></i> <a style="color: rgb(255, 255, 255);"> 27B+ Payments Claimed</a> <br> <br>
+             <i class="fa-solid fa-money-bill-trend-up" style="color: rgb(255, 177, 0);font-size:30px;"></i> <a style="color: rgb(255, 255, 255);"> 70% Market Share</a> <br> <br>
+             <i class="fa-solid fa-user" style="color: rgb(255, 177, 0);font-size:30px;"></i><a style="color: rgb(255, 255, 255);"> 18B+ Policy Holders Bonus</a>
+           </div>
+         </div>
+       </div>
+       <nav class="navbar" style="background-color: rgb(26, 25, 25);">
+         <div class="container-fluid">
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation" style="background-color: rgb(255,177,0); border-color: black; border-width: 4px;">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+           <nav class="navbar navbar-expand-lg">
+               <a class="navbar-brand" href="Trustguard Insurance.html" style="background-color: rgb(255,177,0); color:rgb(0, 0, 0); width: 220px; border-radius: 20px; font-family: 'Times New Roman', Times, serif; height: 67px; text-align: center;position: relative;" >TRUSTGUARD <br>
+               <p style="font-size: small; font-family: 'Times New Roman', Times, serif;">Life Insurance</p></a>
+               <ul class="nav">
+                 <li class="nav-item">
+                   <a class="nav-link" style="color: white; font: size 18px;">Aapke Khuwabon Ki Hifazat, Hamari Zimmedari</a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link" style="font-weight: bold; color: rgb(255, 177, 0);">E-NEWS LETTER</a>
+                 </li>
+               </ul>
+               <form class="d-flex" id="myForm">
+                 <input type="email" id="subs" placeholder="Email Address required" required style="width: 270px;">
+                 <input type="submit" id="subsbtn" value="Subscribe" style="border-radius: 0px; border:rgb(255, 177, 0);">
+             </form>
+               <ul class="nav" >
+                   <li class="nav-item" >
+                     <a class="nav-link" href="https://www.facebook.com"><i class="fa-brands fa-square-facebook" style=" font-size: 18px;"></i></a>
+                   </li>
+                   <li class="nav-item" style="">
+                     <a class="nav-link" href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp" style= "font-size: 18px;"></i></a>
+                   </li> 
+                   <li class="nav-item" style="">
+                     <a class="nav-link" href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin" style=" font-size: 18px;"></i></a>
+                   </li>
+                   <li class="nav-item" style="">
+                     <a class="nav-link" href="https://twitter.com/"><i class="fa-brands fa-x-twitter" style=" font-size: 18px;"></i></a>
+                   </li>
+                  
+               </ul>
+                 </ul>
+             </div>
+           </nav>
+         </div>
+       </nav>
+         </div>
+        </div>
+        <footer class=" text-dark text-center">
+         <p style="font-size: small;">&copy; 2024 Trustguard-Insurance. All rights reserved.</p>
+     </footer>
+        <!-- Container_fluid Closed -->
+    </div> 
+     <!-- JQuery.js CDN -->
+     <script src="J-Query/JQuery3.7.1.js"></script>
+    <!-- FA.com CDN -->
+    <script src="https://kit.fontawesome.com/37b8ef183d.js" crossorigin="anonymous"></script>
+    <!-- BOOTSTRAP-JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+     <!-- MANUAL-js -->
+     <script>
+      $(document).ready(function () {
+  $('.fa-magnifying-glass').click(function () {
+      $('.fa-circle-xmark').show();
+      $('.fa-magnifying-glass').hide();
+  });
+
+  $('.fa-circle-xmark').click(function () {
+      $('.fa-magnifying-glass').show();
+      $('.fa-circle-xmark').hide();
+  });
+});
+// JAVA SCRIPT
+document.getElementById("ser").addEventListener("keydown",function(event){
+     if(event.key==="Enter") {
+       event.preventDefault();
+       abc();
+     }
+    });
+     function abc()
+     {
+         var a= document.getElementById("ser").value.toLowerCase();
+     if(a=="about us")
+     {
+       window.location.href="Trustguard about us.html";
+     } 
+     else if(a=="contact us")
+     {
+       window.location.href="Trustguard contact us.html";
+     }
+     else if(a=="investors information")
+     {
+       window.location.href="Trustguard Investor's Info.html";
+     }
+     else if(a=="investor relations")
+     {
+       window.location.href="Trustguard Investor's Relation.html";
+     }
+     else if(a=="investor information")
+     {
+       window.location.href="Trustguard Investor's Info.html";
+     }
+     else if(a=="investor relation")
+     {
+       window.location.href="Trustguard Investor's Relation.html";
+     }
+     else if(a=="investors relations")
+     {
+       window.location.href="Trustguard Investor's Relation.html";
+     }
+     else if(a=="stock information")
+     {
+       window.location.href="Trustguard Stock's Info.html";
+     }
+     else if(a=="company profile")
+     {
+       window.location.href="Trustguard Company Profile.html";
+     }
+     else if(a=="home")
+     {
+       window.location.href="Trustguard Insurance.html";
+     }
+     else{
+    xyz3();
+     }
+     }
+     
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  var form = this;
+
+
+  if (form.checkValidity()) {
+   
+      xyz();
+  } else {
+      
+      form.reportValidity(); 
+  }
+});
+
+
+function xyz() {
+  document.getElementById("overlay").style.display = "block";
+  document.getElementById("customalert").style.display = "block";
+}
+
+
+document.getElementById("closeAlertBtn").addEventListener("click", function() {
+
+  document.getElementById("overlay").style.display = "none";
+  document.getElementById("customalert").style.display = "none";
+
+
+  document.getElementById("myForm").submit(); 
+});
+      function xyz3() {
+          document.getElementById("customAlert").style.display = "block";
+          document.getElementById("overlay").style.display = "block"; 
+      }
+      function closeAlert() {
+          document.getElementById("customAlert").style.display = "none";
+          document.getElementById("overlay").style.display = "none"; 
+          location.reload();
+      }
+      document.getElementById("insuranceForm").addEventListener("submit", function(event) {
+  
+  event.preventDefault();
+
+
+  var name = document.getElementById("nametxt").value;
+  var category = document.getElementById("category").value;
+  var ageConfirmed = document.getElementById("18cb").checked;
+
+
+  console.log("Name:", name);
+  console.log("Category:", category);
+  console.log("Age Confirmed:", ageConfirmed);
+
+
+  if (name === "" || category === "" || !ageConfirmed) {
+      alert("Please fill in all fields correctly.");
+      return; 
+  }
+
+
+  localStorage.setItem("userName", name);
+
+
+  if (category === "Individual Plans") {
+      window.location.href = "individual.html"; 
+  } else if (category === "Family Plans") {
+      window.location.href = "family_plan.html"; 
+  } else if (category === "Proud Parents") {
+      window.location.href = "proud_parents_plan.html"; 
+  } else if (category === "Vehicle Plans") {
+      window.location.href = "vehicle_plan.html"; 
+  }
+});
+
+   </script>
+  </body>
+</html>

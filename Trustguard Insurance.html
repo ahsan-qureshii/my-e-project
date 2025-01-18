@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TrustGuard-Insurance</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" href="Images/faviconlogo.png">
+     <style>
+        /* NAVBAR */
+        .nav-link{
+            font-size: 13px;
+            color:rgb(255, 255, 255);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .nav-link:hover{
+            color:rgb(255,177,0);
+            text-decoration: none;
+        }
+        .nav-link:active{
+            color:rgb(255,177,0);
+            text-decoration: none;
+        }
+        .nav-link:focus{
+            color:rgb(255,177,0);
+            text-decoration: none;
+        }
+        /* SEARCH SEC CSS */
+        #sersec {
+            width: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            transition: width 0.4s ease;
+        }
+        /* Carousel */
+        .carousel-background {
+            width: 100%;
+            display: flex;
+        }
+        
+       .carousel-img {
+            position: absolute; 
+            width: 100%;
+          }
+          #mainimg1{
+            width: 100%;
+            max-width: 320px;
+            height: 110px;
+          }
+          #carousel-nav{
+            width: 100%;
+            height: 110px;
+            background: -webkit-linear-gradient(left,rgb(0,0,0),transparent)100%;
+            left: 320px;
+            top: 0%;
+            flex: 1;
+            position:absolute;
+            opacity: 0.65;
+          }
+          /* media queries carousel */
+          @media(max-width:768px){
+            .carousel-img{
+              display: none;
+            }
+          }
+        /* subscribe button css */
+        #subsbtn:hover{
+          background-color: rgb(255, 177, 0);
+          color: white;
+        }
+        /* DV */
+        .dv{
+          width: 100%;
+          height: 100%;
+        }
+        /* Placeholder */
+        input::placeholder{
+          color: black;
+        }
+        #btn0{
+          color: white;
+          background-color: black;
+        }
+        #btn0:hover{
+          color: black;
+          background-color: rgb(255, 177, 0);
+        }
+        /* CONTACT SEC DV's */
+        .dvcontact{
+          color: black;
+          text-decoration: none;
+        }
+        .dvcontact:hover{
+          color:rgb(255, 177, 0);
+          text-decoration: none;
+        }
+        #dropdown-toggle{
+          color: #131313;
+          text-decoration: none ;
+        }
+        #dropdown-toggle:hover{
+          color:rgb(255, 177, 0);
+        }
+        /* dropdownarrow */
+        #dropdownarrow::after{
+          content: none;
+        }
+         .custom-alert {
+            display:none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f8f9fa;
+            border: 2px solid rgb(255, 177, 0);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgb(255, 177, 0);
+            z-index: 1000;
+            min-width: 300px;
+        }
+
+        .custom-alert button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .custom-alert button:hover {
+            background-color: rgb(255, 177, 0);
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.5;
+
+        }
+     </style>
+  </head>
+  <body>
+    <div class="overlay" id="overlay"></div>
+    <div class="custom-alert" id="customalert">
+        <h2 align="left" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Trustguard-Insurance</h2>
+        <p>Your Request Has Been Successfully Submitted.</p>
+        <button id="closealertBtn">OK</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="custom-alert" id="customAlert">
+        <h2 align="left" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Trustguard-Insurance</h2>
+        <h4 style="color: #dc3545; font-size: 24px;">Page Not Found</h4>
+        <p style="font-size: 16px; color: #555;">We couldn't find the page you were looking for. Please check if there are any spelling mistakes or extra spaces in your input. If you're sure the page should exist, please try again later or use the search feature to find what you're looking for.</p>
+        <button onclick="closealert()">OK</button>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="nav" style="background-image: -webkit-linear-gradient(left, rgb(0, 0, 0), rgb(255, 177, 0));">
+              <!-- <li class="nav-item">
+                <a class="nav-link"><img src="logo.png" style="width: 28px;height: 28px;position: absolute;"></a>
+            </li> -->
+                <li class="nav-item" style="font-size: 18px;">  
+                    <a class="nav-link" style="color: rgb(255, 255, 255);">📞 (021) *** *** ***</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook" style="font-size: 18px;"></i></a>
+                </li>
+                <li class="nav-item" style="">
+                  <a class="nav-link" href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp" style= "font-size: 18px;"></i></a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.linkedin.com/feed/"><i class="fa-brands fa-linkedin" style="font-size: 18px;"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://twitter.com/"><i class="fa-brands fa-x-twitter" style="font-size: 18px;"></i></a>
+                </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownarrow">
+                  <i class="fa-solid fa-magnifying-glass" style="font-size: 18px;"></i>
+                  <i class="fa-solid fa-circle-xmark" style="font-size: 18px; display: none; color: white ;"></i>
+                </a>
+                <ul class="dropdown-menu" style="width:290px;height: 150px; background:rgb(253, 177, 0);">
+                  <li><input type="text" placeholder="_____________________________________________" id="ser" title="Search Here" required style="width: 100%; height: 30px; background: transparent; border: transparent;"></li> <br>
+                  <li align="center" ><input type="button" onclick="abc()" value="search"  required style="top: 7%; position: absolute;left: 80%;background: none;border: transparent;"></li> <br>
+                  <li><p style="font-family: 'Times New Roman', Times, serif; font-size: x-large; color: rgb(0, 0, 0);" align="center" >Trustguard-Insurance</p></li>
+                </ul>
+                </li>
+            </ul>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-image: -webkit-linear-gradient(left, rgb(255, 177, 0), rgb(0, 0, 0));">
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="background-color: rgb(255, 177, 0);right: 1%;position: relative;">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="Trustguard Insurance.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="Insurance Selection.html">Insurance Products</a></li>
+              <li class="nav-item"><a class="nav-link" href="Trustguard Investor's Info.html">Investor Information</a></li>
+              <li class="nav-item"><a class="nav-link" href="Trustguard Investor's Relation.html">Investor Relations</a></li>
+              <li class="nav-item"><a class="nav-link" href="Trustguard Stock's Info.html">Stock Information</a></li>
+              <li class="nav-item"><a class="nav-link" href="Trustguard Company Profile.html">Company Profile</a></li>
+              <li class="nav-item"><a class="nav-link" href="location.html">Location</a></li>
+              <li class="nav-item"><a class="nav-link" href="Trustguard about us.html">About Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="Trustguard contact us.html">Contact Us</a></li>
+          </ul>
+          </div>
+      </nav>
+          </div>
+        </div>
+        <div class="row">
+         <div class="col-md-12"> 
+            <div class="carousel-background">
+            <div id="carouselslider" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="Images/new1.jpg" class="d-block w-100">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="Images/new3.jpg" class="d-block w-100">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="Images/new2.jpg" class="d-block w-100">
+                </div>
+                <div class="carousel-img">
+                 <img src="Images/Trustguard.jpg" id="mainimg1">
+                 <div id="carousel-nav">
+         </div>
+                </div>
+                </div>
+            </div>
+         </div>
+         </div>
+        </div> 
+    </div>
+        <br>
+        <div class="container-fluid">
+         <div class="row">
+          <div class="col-md-4">
+            <div class="dv" style="background-color: rgb(255,177,0); width:100%;"> 
+              <h1 style="font-weight: bold;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;" align="center">Hello!</h1> <br>
+              <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bold;" align="center">Looking For An Insurance Plan? <br>
+                Customized To Your Needs</p>
+                <form id="insuranceForm" style="position: relative;text-align: center;" >
+                  <!-- <label for="nametxt" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bold;" align="center">Enter Your Name :</label>
+                  <input type="text" name="name" required pattern="[A-Za-z]+" id="nametxt" placeholder="_______________________________" style="background:transparent; border:transparent;">  -->
+                  <br> <br>
+
+                  <label for="category" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bold;">Please Select Your Category Below:</label> 
+                  <br>
+                  <select id="category" required style="width: 200px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                    <option value="Family Individual Health Plan">Family Individual Health Plan</option>
+                    <option value="Family Individual Life Plan">Family Individual Life Plan</option>
+                    <option value="Proud Parents Health Plan">Proud Parents Health Plan</option>
+                    <option value="Home Insurance">Home Insurance</option>
+                    <option value="Vehicle Insurance">Vehicle Insurance</option>
+                    <option value="Travel Insurance">Travel Insurance</option>
+                  </select> 
+                  <br> <br>
+                  
+                  <input type="checkbox" name="" required id="18cb" style="width: 30px; height: 15px;">
+                  <label for="18cb" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bold;">I'm 18 Or Above</label> 
+                  <br> <br> <br> <br> <br>
+                  
+                  <input type="submit" value="Let's Find Your Plans" id="findplanbtn" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bold;width: 250px;"> 
+                  <br> <br> <br>
+                </form>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="dv" style="background-color: rgb(55, 55, 55); width:100%;"> 
+            <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" style="height: 100%;">
+              <div class="carousel-inner">
+                <div class="carousel-item active"> 
+                  <div class="card" style="background:transparent;color: white;">
+                    <img src="Images/CancerProtectionPlan-242x241.jpg" alt="Denim Jeans">
+                    <h4 align="center" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Trustguard Cancer Plan</h4>
+                    <a align="center" style="font-size: small;">Secure your health with our trusted cancer protection plan</a>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="card" style="background:transparent;color: white;">
+                    <img src="Images/health-insurance-jubilee-health-shield.jpg" alt="Denim Jeans">
+                    <h4 align="center" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Trustguard Health Shield</h4>
+                    <a align="center" style="font-size: small;">Protect your health and secure your future with our Health Shield Plan</a>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="card" style="background:transparent;color: white;">
+                    <img src="Images/assured-marriage-plans.jpg" alt="Denim Jeans">
+                    <h4 align="center" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Trustguard Assured Marriage</h4>
+                    <a align="center" style="font-size: small;">Secure your loved ones’ future with our Assured Marriage Plan</a>
+                  </div>
+                </div>
+              </div> 
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+          </div>
+          <div class="col-md-4" >
+            <div class="dv3" style="background-color: rgb(255,177,0); width:100%;"> 
+              <h2 style="font-weight: bold;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: black;" align="center">Notice To Policy Holders!</h2> 
+              <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bold; font-size: small; color: black;" align="center">Dear Policy Holders, <br>
+
+                We kindly remind you to review your policy details and ensure that all information is up-to-date. If you have any questions or require assistance regarding your policy, please contact our customer support team.
+                
+                Thank you for choosing us for your insurance needs.
+                
+                Sincerely,</p> <hr>
+                <h2  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bold; color: black;" align="center">Notice for Investors</h2>
+                <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bold; font-size: small; color: black;" align="center">
+                Dear Valued Investors, <br>
+                  We sincerely appreciate your continued trust in our insurance company. As part of our commitment to transparency and mutual growth, we encourage you to stay updated with our financial performance and operational milestones.
+                  
+                  Please note that all relevant updates, including dividend announcements, policy adjustments, and market insights, will be shared through official communication channels. For any inquiries or further clarification, our support team is available to assist you.
+                  
+                  Thank you for your unwavering confidence in our vision.
+
+                  Sincerely,</p>
+                  <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bold;" align="center">[Trustguard-Insurance]</p> <br>
+            </div>
+          </div>
+         </div>
+        </div>
+         <hr style="color: rgb(0,0, 0); height: 5px; border: 0; background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0); border-top: rgb(0, 0, 0);opacity: 1;">
+         <hr style="color: rgb(255, 177, 0); height: 5px; border: 0; background-color: rgb(255, 177, 0); border-color: rgb(255, 177, 0); border-top: rgb(255, 177, 0);opacity: 1;">
+         <div class="container-fluid">
+         <div class="row">
+          <div class="col-md-2" style="color: black; font-weight: bold; font-size: small;">
+            NEWS & ANNOUCEMENTS : 
+          </div>
+          <div class="col-md-10">
+            <marquee behavior="" direction="">We are excited to announce the launch of flexible and high-return investment plans tailored to meet your financial goals , Explore our new offerings today and secure your future with confidence ,  To enhance your experience, our customer support services are now available round the clock. Feel free to reach out to us anytime for assistance with policies or investments.            Mark your calendars! Our Annual Investor Meeting will be held on [date]. Join us to discuss company performance, future plans, and growth strategies. Stay tuned for more details.</marquee>
+          </div>
+        </div>
+         </div>
+         <hr style="color: rgb(0,0, 0); height: 5px; border: 0; background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0); border-top: rgb(0, 0, 0);opacity: 1;">
+       <div class="container-fluid">
+         <div class="row">
+          <div class="col-md-4">
+            <h2 style="font-weight: bold;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: black;" align="center">GET IN TOUCH</h2> <br>
+            <ul style="list-style-type: none;" style="position: relative;text-align: center;">
+            <li class="nav-item dropdown" style="text-align: center; ">
+              <a class="dropdown-toggle" id="dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: large;">
+                HELP DESK
+              </a> <br>
+              <div class="dvform">
+                <ul class="dropdown-menu" style="background:rgb(255,177,0);">
+                  <!-- <li align="center"><input type="text" placeholder="Search" id="ser" title="Search Here" required style="width: 400px; height: 50px; background: transparent;"></li> -->
+                  <br>
+                  <form action="" style="width:380px;">
+                    <div class="form1" align="left">
+                      <label for="name" style="color: #131313;">NAME:</label> <br>
+                      <input type="text" id="name" placeholder="Mark-Otto" title="Enter Your Name" required pattern="[A-Za-z]+"> <br>
+              
+                      <label for="cnic" style="color: #131313;">CNIC:</label> <br>
+                      <input type="text" id="cnic" placeholder="*****-*******-*" title="Enter Your CNIC-No without using(-)" required pattern="([0-9]{13})"> <br>
+              
+                      <label for="phone" style="color: #131313;">PHONE No:</label> <br>
+                      <input type="text" id="phone" placeholder="+92-***-*******" title="Enter Your Phone-No" required pattern="([+92][0-9]{12})"> <br>
+              
+                      <label for="email" style="color: black;">EMAIL:</label> <br>
+                      <input type="email" id="email" placeholder="markotto@example.com" title="Enter Your Email" required> <br>
+              
+                      <label for="address" style="color: #131313;">ADDRESS:</label> <br>
+                      <input type="text" id="address" placeholder="John Doe, 456 Elm Street, Suite 3, Los Angeles, CA 90001, USA." title="Enter Your Address" required pattern="[A-Za-z0-9, ]+"> <br>
+                      <br>
+                    </div> 
+              
+                    <div class="form2" style="top: 10%; position: absolute; right: 0%;" align="right">
+                      <label for="request_type" style="color: black;">Request Type:</label> <br>
+                      <select id="request_type" required style="width: 150px;">
+                        <option value="" disabled selected>Request Type</option>
+                        <option value="complaints">COMPLAINTS</option>
+                        <option value="query">QUERY</option>
+                        <option value="suggestion">SUGGESTION</option>
+                      </select> <br>
+              
+                      <label for="request_pertains" style="color: black;">Request Pertains To?</label> <br>
+                      <select id="request_pertains" required style="width: 150px;">
+                        <option value="" disabled selected>Request Pertains To?</option>
+                        <option value="health_insurance">Health Insurance</option>
+                        <option value="vehicle_insurance">Vehicle Insurance</option>
+                        <option value="hr_admin">HR & ADMIN</option>
+                      </select> <br>
+              
+                      <label for="province" style="color: black;">Select Province:</label> <br>
+                      <select id="province" required style="width: 150px;">
+                        <option value="" disabled selected>Province?</option>
+                        <option value="sindh">SINDH</option>
+                        <option value="punjab">PUNJAB</option>
+                        <option value="kpk">KPK</option>
+                      </select> <br>
+              
+                      <label for="city" style="color: black;">Select City:</label> <br>
+                      <select id="city" required style="width: 150px;">
+                        <option value="" disabled selected>City?</option>
+                        <option value="karachi">Karachi</option>
+                        <option value="islamabad">Islamabad</option>
+                        <option value="lahore">Lahore</option>
+                      </select> <br> <br>
+              
+                      <li align="center"><input type="submit" id="btn0" value="Complete"></li>
+                    </div>
+              
+                    <li>
+                      <p style="font-family: 'Times New Roman', Times, serif; font-size: x-large; color: rgb(0, 0, 0);" align="center">Trustguard</p>
+                    </li>
+                  </form>
+                </ul>
+              </div>
+               
+          </div>
+          <div class="col-md-4">
+            <div id="carouselExample" class="carousel slide">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <h2 style="font-weight: bold;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: black;" align="center">FUND PRICE's</h2> <br>
+                  <h5 style="font-weight: bold;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: black;" align="center">Trustguard Aggressive Life</h5> <br>
+                  <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bold;  color: black; position: absolute; margin-left: 13%; height: 100%;">
+                    Offer Price: <br> <a style="font-size: 20px;"> 1294.6441 (Rs.) </a>
+                   </p>
+                   <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bold;  color: black; margin-left: 55%;">
+                    Bid Price: <br> <a style="font-size: 20px;">1229.9114 (Rs.)</a>
+                   </p>
+                </div>
+                <div class="carousel-item">
+                  <h2 style="font-weight: bold;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: black;" align="center">FUND PRICE's</h2> <br>
+                  <h5 style="font-weight: bold;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: black;" align="center">Trustguard Govt Securities Fund</h5> <br>
+                  <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bold;  color: black; position: absolute; margin-left: 13%; height: 100%;">
+                    Offer Price: <br> <a style="font-size: 20px;"> 2438.2260 (Rs.) </a>
+                   </p>
+                   <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bold;  color: black; margin-left: 55%;">
+                    Bid Price: <br> <a style="font-size: 20px;">2316.3178 (Rs.)</a>
+                   </p>
+                </div>
+                <div class="carousel-item">
+                  <h2 style="font-weight: bold;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: black;" align="center">FUND PRICE's</h2> <br>
+                  <h5 style="font-weight: bold;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: black;" align="center">Trustguard Family Balanced Fund</h5> <br>
+                  <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bold;  color: black; position: absolute; margin-left: 13%; height: 100%;">
+                    Offer Price: <br> <a style="font-size: 20px;"> 822.544 (Rs.) </a>
+                   </p>
+                   <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bold;  color: black; margin-left: 55%;">
+                    Bid Price: <br> <a style="font-size: 20px;">781.914 (Rs.)</a>
+                   </p>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" style="filter: invert(1);">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" style="filter:invert(1);">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="dv8">
+              <h3  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: bold; color: black;" align="center">TRUSTGUARD HEALTH EMERGENCY</h3> <br>
+              <p style="font-weight: 600;" align="center">(021) *** *** ***</p> 
+              <p align="center" style="font-weight: 600;">Your Health, Our Priority – Support When You Need It Most!</p>
+            </div>
+          </div>
+        </div>
+       </div>
+        <hr style="color: rgb(0,0, 0); height: 5px; border: 0; background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0); border-top: rgb(0, 0, 0);opacity: 1;">
+       <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3" align="center">
+           <div class="dv">
+            <i class="fa-brands fa-whatsapp" style="font-size: 40px; word-spacing: 20px;color: rgb(255,177,0);"></i>   <br><a style="font-weight: bold;">WHATSAPP</a><br>
+            <a href="https://web.whatsapp.com/" class="dvcontact">📱 Connect Here</a> <br>
+            <a href="https://web.whatsapp.com/" class="dvcontact">🖥For Details</a>
+            <br> <br>
+           </div>
+          </div>
+          <div class="col-md-3" align="center">
+           <div class="dv1">
+            <i class="fa-regular fa-message" style="font-size: 30px; word-spacing: 15px;color: rgb(255, 177, 0);"></i> <br><a style="font-weight: bold;">SMS</a><br>
+            <p><a style="font-weight: 640;">Your Query</a> to <b>****</b></p> <br> <br>
+           </div>
+          </div>
+          <div class="col-md-3" align="center">
+            <div class="dv2">
+              <i class="fa-solid fa-phone" style="font-size: 30px; word-spacing: 15px;color: rgb(255, 177, 0);"></i> <br><a style="font-weight: bold;">CALL</a><br>
+              Call Our Contact Center
+              (021) *** *** *** <br> <br>
+            </div>
+          </div>
+          <div class="col-md-3" align="center">
+           <div class="dv3">
+            <i class="fa-solid fa-envelope"  style="font-size: 30px; word-spacing: 10px;color: rgb(255, 177, 0);"></i> <br><a style="font-weight: bold;">FEEDBACK & COMPLAINTS</a>
+            <a href="mailto:?subject:Customer care" class="dvcontact">
+            info@trustguard.com </a>
+           <a href="mailto:?subject:Customer care" class="dvcontact">complaints@trustguard.com </a><br>  <br>
+           </div>
+          </div>
+        </div>
+       </div>
+        <hr style="color: rgb(0,0, 0); height: 5px; border: 0; background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0); border-top: rgb(0, 0, 0);opacity: 1;">
+        <hr style="color: rgb(255, 177, 0); height: 5px; border: 0; background-color: rgb(255, 177, 0); border-color: rgb(255, 177, 0); border-top: rgb(255, 177, 0);opacity: 1;">
+        <!-- NAVBAR 3 -->
+         <div class="container-fluid">
+         <div class="row">
+          <div class="col-md-12">
+        <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
+          <div class="bg-dark p-4">
+            <h5 class="text-body-emphasis h4">TRUSTGUARD INSURANCE CORPORATION PAKISTAN.</h5>
+            <span class="text-body-secondary">Pakistan's Most Trusted Life & Health Insurer.</span> <br> <br>
+            <div class="dvserved">
+              <i class="fa-solid fa-shield-halved" style="color: rgb(255, 177, 0);font-size:30px;"> </i><a style="color: rgb(255, 255, 255);"> 180M+ Pakistani Served</a> <br> <br>
+              <i class="fa-solid fa-credit-card" style="color: rgb(255, 177, 0);font-size:30px;"></i> <a style="color: rgb(255, 255, 255);"> 27B+ Payments Claimed</a> <br> <br>
+              <i class="fa-solid fa-money-bill-trend-up" style="color: rgb(255, 177, 0);font-size:30px;"></i> <a style="color: rgb(255, 255, 255);"> 70% Market Share</a> <br> <br>
+              <i class="fa-solid fa-user" style="color: rgb(255, 177, 0);font-size:30px;"></i><a style="color: rgb(255, 255, 255);"> 18B+ Policy Holders Bonus</a>
+            </div>
+          </div>
+        </div>
+        <nav class="navbar" style="background-color: rgb(26, 25, 25);">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation" style="background-color: rgb(255,177,0); border-color: black; border-width: 4px;">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="Trustguard Insurance.html" style="background-color: rgb(255,177,0); color:rgb(0, 0, 0); width: 220px; border-radius: 20px; font-family: 'Times New Roman', Times, serif; height: 67px; text-align: center;position: relative;" >TRUSTGUARD <br>
+                <p style="font-size: small; font-family: 'Times New Roman', Times, serif;">Life Insurance</p></a>
+                <ul class="nav">
+                  <li class="nav-item">
+                    <a class="nav-link" style="color: white; font: size 18px;">Aapke Khuwabon Ki Hifazat, Hamari Zimmedari</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" style="font-weight: bold; color: rgb(255, 177, 0);">E-NEWS LETTER</a>
+                  </li>
+                </ul>
+                <form class="d-flex" id="myForm">
+                  <input type="email" id="subs" placeholder="Email Address required" required style="width: 270px;">
+                  <input type="submit" id="subsbtn" value="Subscribe" style="border-radius: 0px; border:rgb(255, 177, 0);">
+              </form>
+                <ul class="nav" >
+                    <li class="nav-item" >
+                      <a class="nav-link" href="https://www.facebook.com"><i class="fa-brands fa-square-facebook" style=" font-size: 18px;"></i></a>
+                    </li>
+                    <li class="nav-item" style="">
+                      <a class="nav-link" href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp" style= "font-size: 18px;"></i></a>
+                    </li> 
+                    <li class="nav-item" style="">
+                      <a class="nav-link" href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin" style=" font-size: 18px;"></i></a>
+                    </li>
+                    <li class="nav-item" style="">
+                      <a class="nav-link" href="https://twitter.com/"><i class="fa-brands fa-x-twitter" style=" font-size: 18px;"></i></a>
+                    </li>
+                   
+                </ul>
+                  </ul>
+              </div>
+            </nav>
+          </div>
+        </nav>
+          </div>
+         </div>
+         <footer class=" text-dark text-center">
+          <p style="font-size: small;">&copy; 2024 Trustguard-Insurance. All rights reserved.</p>
+      </footer>
+        <!-- Container_fluid Closed -->
+    </div> 
+     <!-- JQuery.js CDN -->
+     <script src="J-Query/JQuery3.7.1.js"></script>
+    <!-- FA.com CDN -->
+    <script src="https://kit.fontawesome.com/37b8ef183d.js" crossorigin="anonymous"></script>
+    <!-- BOOTSTRAP-JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+     <!-- MANUAL-js -->
+    <script>
+        $(document).ready(function () {
+    $('.fa-magnifying-glass').click(function () {
+        $('.fa-circle-xmark').show();
+        $('.fa-magnifying-glass').hide();
+    });
+
+    $('.fa-circle-xmark').click(function () {
+        $('.fa-magnifying-glass').show();
+        $('.fa-circle-xmark').hide();
+    });
+});
+// JAVA SCRIPT
+document.getElementById("ser").addEventListener("keydown",function(event){
+       if(event.key==="Enter") {
+         event.preventDefault();
+         abc();
+       }
+      });
+       function abc()
+       {
+           var a= document.getElementById("ser").value.toLowerCase();
+       if(a=="about us")
+       {
+         window.location.href="Trustguard about us.html";
+       } 
+       else if(a=="contact us")
+       {
+         window.location.href="Trustguard contact us.html";
+       }
+       else if(a=="investors information")
+       {
+         window.location.href="Trustguard Investor's Info.html";
+       }
+       else if(a=="investor relations")
+       {
+         window.location.href="Trustguard Investor's Relation.html";
+       }
+       else if(a=="investor information")
+       {
+         window.location.href="Trustguard Investor's Info.html";
+       }
+       else if(a=="investor relation")
+       {
+         window.location.href="Trustguard Investor's Relation.html";
+       }
+       else if(a=="investors relations")
+       {
+         window.location.href="Trustguard Investor's Relation.html";
+       }
+       else if(a=="stock information")
+       {
+         window.location.href="Trustguard Stock's Info.html";
+       }
+       else if(a=="company profile")
+       {
+         window.location.href="Trustguard Company Profile.html";
+       }
+       else if(a=="home")
+       {
+         window.location.href="Trustguard Insurance.html";
+       }
+       else{
+      xyz3();
+       }
+       }
+       
+      document.getElementById("myForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    var form = this;
+
+
+    if (form.checkValidity()) {
+     
+        xyz();
+    } else {
+       
+        form.reportValidity(); 
+    }
+});
+
+function xyz() {
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("customalert").style.display = "block";
+}
+
+document.getElementById("closealertBtn").addEventListener("click", function() {
+  
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("customalert").style.display = "none";
+
+ 
+    document.getElementById("myForm").submit();
+});
+        function xyz3() {
+            document.getElementById("customAlert").style.display = "block";
+            document.getElementById("overlay").style.display = "block"; 
+        }
+        function closealert() {
+            document.getElementById("customAlert").style.display = "none";
+            document.getElementById("overlay").style.display = "none"; 
+            location.reload();
+        }
+        document.getElementById("insuranceForm").addEventListener("submit", function(event) {
+    
+    event.preventDefault();
+
+  
+    var category = document.getElementById("category").value;
+    if (category == "Family Individual Health Plan") {
+        window.location.href = "Family-Health.html"; 
+    } else if (category == "Family Individual Life Plan") {
+        window.location.href = "Family-Life.html"; 
+    } else if (category == "Proud Parents Health Plan") {
+        window.location.href = "proudparentshamza.html"; 
+    } else if (category == "Home Insurance") {
+        window.location.href = "homeinsurance.html"; 
+    }
+    else if (category == "Vehicle Insurance") {
+        window.location.href = "vehicle insurance.html"; 
+    }
+    else if (category == "Travel Insurance") {
+        window.location.href = "travel insurance.html"; 
+    }
+    else{}
+});
+     </script>
+  </body>
+</html>
